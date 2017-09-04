@@ -1,0 +1,9 @@
+#! /usr/bin/env ruby -v
+
+require 'irb'
+
+puts 'Loading files...'
+require './lib/account.rb'
+require './lib/account_interface.rb'
+
+IRB.start
