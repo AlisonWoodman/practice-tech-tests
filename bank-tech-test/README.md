@@ -1,14 +1,36 @@
 # Bank tech test
 -------------
-#Instructions:
+## To use
 
-Today, you'll practice doing a tech test.
+Navigate to the directory within the terminal.
 
-For most tech tests, you'll essentially have unlimited time.  This practice session is about producing the best code you can when there is a minimal time pressure.
+```
+#to install gems
+bundle install
+#to run files in IRB
+bin/rails
+#to run tests
+rspec
+```
 
-You'll get to practice your OO design and TDD skills.
+## My approach
 
-You'll work alone, and you'll also review your own code so you can practice reflecting on and improving your own work.
+Planning and structure:
+
+I started by writing simple user stories and listing the nouns and verbs associated in the plan.md. I then decided upon what classes to create, by thinking about how to divide up responsibilities. The resulting Account Interface, and Account classes emerged as a fairly neat separation between the public methods which users interacted with, and the background logic responsible for responding to actions of the user, which could mostly be encapsulated in private methods.
+
+I chose to create just two classes  due to the fairly narrow scope of the task and limited types of responsibility.
+
+The code folder structure is fairly simple - the classes each have a file within the lib folder, and the corresponding tests live in the spec folder.
+
+I used the rubocop gem to check formatting and simplecov to keep track of test coverage.
+
+Improvements:
+
+Some of the responsibilities fo the classes changed as the code developed, and I didn't always update the plan as this happened. It would be helpful next time to revisit the plan more regularly and make it consistent with the code I'm planning to write, to make sure I'm actively thinking about and checking my decisions.
+
+I'm not sure about having an instance variable for the output. Since it doesn't need to be accessed except at the point of creation it would seem better not to create an instance varaible. I did this since I couldn't easily see another way to test the output.
+
 
 ## Specification
 

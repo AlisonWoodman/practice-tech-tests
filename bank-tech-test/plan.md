@@ -7,40 +7,46 @@ User can...
 
 Objects:
 
-- Account
-- Statement with:
+* Account
+* Statement with:
   - Deposit amounts
   - Withdrawal amounts
   - Balances
   - Dates
-- Bank statement printer?
+* Bank statement printer?
 
 Methods:
 
-Public:
-- make_deposit
-- make_withdrawal
-- print_statement
-Private:
-- calculate_date
-- display_date
-- print_headers
-- create_statement_row
-- calculate_balance
-
-Classes:
-AccountInterface:
-  Methods:
-    - make_deposit(amount) x
-    - make_withdrawal(amount) x
-    - print_statement
-  Objects:
-    - statement
-    - balance
-    - account
-Account
-  Methods:
-  - calculate_date x
+* Public:
+  - make_deposit
+  - make_withdrawal
+  - print_statement
+* Private:
+  - calculate_date
+  - display_date
   - print_headers
   - create_statement_row
-  - update_balance x
+  - calculate_balance
+
+Classes:
+
+* AccountInterface:
+  -  Methods:
+      - make_deposit(amount)
+      - make_withdrawal(amount)
+      - print_statement
+  - Objects:
+      - account
+
+* Account:
+  - Methods:
+    - calculate_date
+    - print_headers
+    - create_statement_row
+    - update_balance
+  * Objects:
+    - statement
+    - balance
+    - date
+    - credit
+    - debit
