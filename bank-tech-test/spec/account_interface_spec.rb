@@ -9,7 +9,7 @@ describe AccountInterface do
   let(:current_date)          { Time.now.strftime('%d/%m/%Y') }
   let(:headings)              { %w[date credit debit balance] }
   let(:example_statement)     { "date || credit || debit || balance
-#{current_date} || #{format_test_amount} ||  || #{format_test_amount}\n"}
+#{current_date} || #{format_test_amount} || || #{format_test_amount}\n"}
 
   describe '#initialize' do
     it 'initialises with an Account' do

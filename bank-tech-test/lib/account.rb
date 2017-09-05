@@ -6,7 +6,6 @@ class Account
   def initialize
     @balance = START_BALANCE
     @format_balance = START_BALANCE
-    @statement_header = [%w[date credit debit balance]]
     @statement = []
     @credit = ''
     @debit = ''
@@ -27,7 +26,7 @@ class Account
   end
 
   def calculate_date
-    @date = Time.now.strftime('%d/%m/%Y')
+    @date = Time.now.strftime('%d/%m/%Y') + ' '
   end
 
   def update_balance(amount, type)
@@ -37,10 +36,10 @@ class Account
 
   def calculate_credit_or_debit(amount, type)
     if type == :credit
-      @credit = '%.2f' % amount
+      @credit = '%.2f' % amount + ' '
       @debit = ''
     else
-      @debit = '%.2f' % amount
+      @debit = '%.2f' % amount + ' '
       @credit = ''
     end
   end

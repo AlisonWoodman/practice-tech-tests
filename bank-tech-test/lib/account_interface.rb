@@ -16,7 +16,7 @@ class AccountInterface
   def print_statement
     output = "date || credit || debit || balance\n"
     @account.statement.reverse.each do |row|
-      output += row.join(' || ') + "\n"
+      output += row.join('|| ') + "\n"
     end
     puts output
   end
