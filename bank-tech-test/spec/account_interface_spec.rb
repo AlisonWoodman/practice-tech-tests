@@ -1,5 +1,5 @@
 require 'account_interface'
-require 'account'
+require 'transaction'
 
 describe AccountInterface do
   let(:account)               { Account.new }

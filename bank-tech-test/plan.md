@@ -50,3 +50,15 @@ Classes:
     - date
     - credit
     - debit
+
+  Extracting Classes:
+
+  Take logic from Account and delegate to Data Handler and Statement Creator:
+  Data Handler:
+  - updates balance
+  - updates credit amount
+  - updates debit amount
+  Statement Creator:
+  - gets the rows
+  - formats the rows
+  - stores the statement
