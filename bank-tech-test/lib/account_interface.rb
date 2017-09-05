@@ -1,23 +1,19 @@
 class AccountInterface
-  attr_reader :account
+  attr_reader :data_handler
 
-  def initialize(account)
-    @account = account
+  def initialize(data_handler)
+    @data_handler = data_handler
   end
 
   def make_deposit(amount)
-    @account.create_statement_row(amount, :credit)
+    @data_handler.create_transaction(amount, :credit)
   end
 
   def make_withdrawal(amount)
-    @account.create_statement_row(amount, :debit)
+    @data_handler.create_transaction(amount, :debit)
   end
 
   def print_statement
-    output = "date || credit || debit || balance\n"
-    @account.statement.reverse.each do |row|
-      output += row.join('|| ') + "\n"
-    end
-    puts output
+    @data_handler.statement.print_statement
   end
 end

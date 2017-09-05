@@ -3,6 +3,7 @@ class DataHandler
 
   def initialize
     @transaction = nil
+    @statement = Statement.new
   end
 
   def create_transaction(amount, type)
@@ -10,6 +11,7 @@ class DataHandler
     calculate_date
     calculate_credit_or_debit(amount, type)
     update_balance(amount, type)
+    @statement.add_statement_row(@transaction)
   end
 
   private
@@ -19,7 +21,7 @@ class DataHandler
   end
 
   def calculate_credit_or_debit(amount, type)
-    type == :credit ? @transaction.credit = amount : @transaction.debit = amount
+    type == :credit ? @transaction.credit = '%.2f' % amount : @transaction.debit = '%.2f' % amount
     type == :credit ? @transaction.debit = '' : @transaction.credit = ''
   end
 

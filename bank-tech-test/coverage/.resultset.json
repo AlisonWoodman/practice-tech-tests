@@ -61,10 +61,6 @@
         null,
         1,
         0,
-        0,
-        0,
-        null,
-        0,
         null,
         null
       ],
@@ -81,19 +77,6 @@
         9,
         null,
         null,
-        1,
-        0,
-        0,
-        null,
-        null,
-        1,
-        null,
-        1,
-        0,
-        0,
-        0,
-        null,
-        null,
         null
       ],
       "/Users/alisonwoodman/Documents/Makers/week-10/practice-tech-tests/bank-tech-test/spec/data_handler_spec.rb": [
@@ -102,12 +85,8 @@
         null,
         1,
         6,
-        1,
         6,
-        1,
         2,
-        1,
-        1,
         null,
         1,
         1,
@@ -145,9 +124,11 @@
         null,
         1,
         5,
+        5,
         null,
         null,
         1,
+        5,
         5,
         5,
         5,
@@ -171,10 +152,66 @@
         null
       ],
       "/Users/alisonwoodman/Documents/Makers/week-10/practice-tech-tests/bank-tech-test/spec/statement_spec.rb": [
-
+        1,
+        1,
+        null,
+        1,
+        2,
+        2,
+        null,
+        1,
+        1,
+        1,
+        1,
+        1,
+        null,
+        null,
+        null
+      ],
+      "/Users/alisonwoodman/Documents/Makers/week-10/practice-tech-tests/bank-tech-test/lib/statement.rb": [
+        1,
+        1,
+        null,
+        1,
+        6,
+        null,
+        null,
+        1,
+        6,
+        null,
+        null,
+        1,
+        6,
+        6,
+        null,
+        null,
+        null
+      ],
+      "/Users/alisonwoodman/Documents/Makers/week-10/practice-tech-tests/bank-tech-test/spec/mock_transaction.rb": [
+        1,
+        1,
+        null,
+        1,
+        1,
+        1,
+        1,
+        1,
+        null,
+        null,
+        null
       ],
       "/Users/alisonwoodman/Documents/Makers/week-10/practice-tech-tests/bank-tech-test/spec/transaction_history_spec.rb": [
-
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
       ],
       "/Users/alisonwoodman/Documents/Makers/week-10/practice-tech-tests/bank-tech-test/spec/transaction_spec.rb": [
         1,
@@ -208,6 +245,6 @@
         null
       ]
     },
-    "timestamp": 1504623796
+    "timestamp": 1504626002
   }
 }
