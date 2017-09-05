@@ -2,11 +2,13 @@ require 'account_interface'
 require 'account'
 
 describe AccountInterface do
-  let(:account) { Account.new }
+  let(:account)               { Account.new }
   subject(:account_interface) { described_class.new(account) }
-  let(:test_amount) { 100 }
-  let(:current_date) { Time.now.strftime('%d/%m/%Y') }
-  let(:headings) { 'date, || credit, || debit, || balance' }
+  let(:test_amount)           { 100 }
+  let(:current_date)          { Time.now.strftime('%d/%m/%Y') }
+  let(:headings)              { %w[date credit debit balance] }
+  let(:example_statement)     { "date || credit || debit || balance
+#{current_date} || #{test_amount} ||   || #{test_amount}\n"}
 
   describe '#initialize' do
     it 'initialises with an Account' do
@@ -15,45 +17,23 @@ describe AccountInterface do
   end
 
   describe '#make_deposit' do
-    it 'increases balance by amount deposited' do
-      expect { account_interface.make_deposit(test_amount) }
-        .to change { account.balance }.from(Account::START_BALANCE).to(test_amount)
-    end
-
-    it 'changes date variable to current date' do
-      expect { account_interface.make_deposit(test_amount) }
-        .to change { account.date }.to(current_date)
-    end
-
-    it 'changes credit amount by amount deposited' do
-      expect { account_interface.make_deposit(test_amount) }
-        .to change { account.credit }.to(test_amount)
+    it 'calls #create_statement_row with appropriate arguments' do
+       expect(account).to receive(:create_statement_row).with(test_amount, :credit)
+       account_interface.make_deposit(test_amount)
     end
   end
 
   describe '#make_withdrawal' do
-    it 'decreases balance by amount withdrawn' do
-      expect { account_interface.make_withdrawal(test_amount) }
-        .to change { account.balance }.from(Account::START_BALANCE).to(-test_amount)
-    end
-
-    it 'changes date variable to current date' do
-      expect { account_interface.make_withdrawal(test_amount) }
-        .to change { account.date }.to(current_date)
-    end
-
-    it 'changes debit amount by amount deposited' do
-      expect { account_interface.make_withdrawal(test_amount) }
-        .to change { account.debit }.to(test_amount)
+    it 'calls #create_statement_row with appropriate arguments' do
+       expect(account).to receive(:create_statement_row).with(test_amount, :debit)
+       account_interface.make_withdrawal(test_amount)
     end
   end
 
   describe '#print_statement' do
     it 'prints column headings and statement rows' do
       account_interface.make_deposit(test_amount)
-      account_interface.print_statement
-      expect(account_interface.output)
-        .to eq "#{headings}\n#{current_date} || #{test_amount} ||   || #{test_amount}\n"
+      expect{ account_interface.print_statement }.to output(example_statement).to_stdout
     end
   end
 end

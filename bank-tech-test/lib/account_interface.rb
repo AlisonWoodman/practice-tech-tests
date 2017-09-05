@@ -1,10 +1,8 @@
 class AccountInterface
   attr_reader :account
-  attr_accessor :output
 
   def initialize(account)
     @account = account
-    @output = nil
   end
 
   def make_deposit(amount)
@@ -16,10 +14,10 @@ class AccountInterface
   end
 
   def print_statement
-    @output = ''
+    output = ''
     @account.statement.each do |row|
-      @output += row.join(' || ') + "\n"
+      output += row.join(' || ') + "\n"
     end
-    puts @output
+    puts output
   end
 end

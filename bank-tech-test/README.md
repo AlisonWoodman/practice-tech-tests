@@ -25,6 +25,8 @@ The code folder structure is fairly simple - the classes each have a file within
 
 I used the rubocop gem to check formatting and simplecov to keep track of test coverage.
 
+Then I refactored tests to be independent - previously testing behaviour of Account Class methods within the Account Interface spec.
+
 Improvements:
 
 Some of the responsibilities fo the classes changed as the code developed, and I didn't always update the plan as this happened. It would be helpful next time to revisit the plan more regularly and make it consistent with the code I'm planning to write, to make sure I'm actively thinking about and checking my decisions.

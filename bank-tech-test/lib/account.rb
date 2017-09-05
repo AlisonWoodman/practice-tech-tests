@@ -5,7 +5,7 @@ class Account
 
   def initialize
     @balance = START_BALANCE
-    @statement = [%w[date, credit, debit, balance]]
+    @statement = [%w[date credit debit balance]]
     @credit = ' '
     @debit = ' '
     @date = nil
