@@ -29,7 +29,7 @@ Improvements:
 
 Some of the responsibilities fo the classes changed as the code developed, and I didn't always update the plan as this happened. It would be helpful next time to revisit the plan more regularly and make it consistent with the code I'm planning to write, to make sure I'm actively thinking about and checking my decisions.
 
-I'm not sure about having an instance variable for the output. Since it doesn't need to be accessed except at the point of creation it would seem better not to create an instance varaible. I did this since I couldn't easily see another way to test the output.
+I'm not sure about having an instance variable for the output. Since it doesn't need to be accessed except at the point of creation it would seem better not to create an instance variable. I did this since I couldn't easily see another way to test the output.
 
 
 ## Specification
