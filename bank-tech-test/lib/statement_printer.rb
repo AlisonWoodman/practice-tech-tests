@@ -5,9 +5,12 @@ class StatementPrinter
 
   def print_statement
     output = "date || credit || debit || balance\n"
-    @account.statement.reverse.each do |row|
-      output += row.join('|| ') + "\n"
-    end
+    output += @statement.statement.reverse.
     puts output
+  end
+
+  def format_rows(statement)
+    array = [transaction.date, transaction.credit, transaction.debit, transaction.balance]
+    return array.join(" || ")
   end
 end

@@ -1,5 +1,5 @@
 require 'statement'
-require 'mock_transaction'
+require 'mocks/mock_transaction'
 
 describe Statement do
   subject(:statement)         { described_class.new }

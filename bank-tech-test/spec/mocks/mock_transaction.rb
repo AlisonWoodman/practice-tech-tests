@@ -5,7 +5,7 @@ class MockTransaction
     @balance = 100
     @credit = 100
     @debit = ''
-    @date = "05/09/2017"
+    @date = Time.now
   end
 
 end
