@@ -35,10 +35,4 @@ describe AccountInterface do
     end
   end
 
-  describe '#print_statement' do
-    it 'prints column headings and statement rows' do
-      account_interface.make_deposit(test_amount)
-      expect{ account_interface.print_statement }.to output(example_statement).to_stdout
-    end
-  end
 end

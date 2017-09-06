@@ -5,8 +5,8 @@ class Statement
     @statement = []
   end
 
-  def add_statement_row(transaction)
-    @statement << transaction
+  def add_statement_row(row_formatter)
+    @statement << row_formatter
   end
 
 end
