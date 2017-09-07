@@ -16,7 +16,8 @@ If it doesn't:
 a) loop back to the start of Player one's turn, until valid space selected
 3) Current player swithces to player two
 
-Player
-Board
-Game
-Referee
+Classes:
+Player: initializes with marker 
+Board: tracks board array and status of each element (i.e '', 'X' or 'O')
+Game: allows players to have turns and switches current_player after successful turn
+Referee: checks winning or drawing conditions and ends game if appropriate
