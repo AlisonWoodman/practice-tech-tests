@@ -2,7 +2,7 @@ describe('Game', function(){
   var game;
   var test_player_one = new Player('X');
   var test_player_two = new Player('O');
-  var test_board = new Board;
+  var test_board = new Board();
   var test_x_value = 1;
   var test_y_value = 2;
 
@@ -24,6 +24,7 @@ describe('Game', function(){
     it('starts with a board', function(){
       expect(game.board()).toEqual(test_board);
     });
+
   });
 
   describe('play', function(){

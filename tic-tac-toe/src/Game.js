@@ -19,8 +19,9 @@
     board: function() {
       return this._board;
     },
-    play: function(x,y) {
-      this._board.attempt_update();
+    play: function(x, y) {
+      marker = this._current_player._marker;
+      this._board.attempt_update(x, y, marker);
     }
   };
 
