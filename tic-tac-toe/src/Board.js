@@ -6,6 +6,9 @@
   Board.prototype = {
     board: function(){
       return this._board;
+    },
+    attempt_update: function(){
+      return 'hi';
     }
   };
 

@@ -17,7 +17,14 @@ a) loop back to the start of Player one's turn, until valid space selected
 3) Current player swithces to player two
 
 Classes:
-Player: initializes with marker 
-Board: tracks board array and status of each element (i.e '', 'X' or 'O')
-Game: allows players to have turns and switches current_player after successful turn
+Game:
+- initializes with two players, one of them the current player, and a board
+- allows players to take turns and switches current_player after successful turn
+- calls board method to check whether move is valid
+Player:
+- initializes with marker
+Board:
+- initializes with board array
+- checks whether move (sent from game) is valid
+- updates board array with X's and O's if move is valid
 Referee: checks winning or drawing conditions and ends game if appropriate
