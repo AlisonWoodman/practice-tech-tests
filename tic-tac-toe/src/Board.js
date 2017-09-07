@@ -1,6 +1,7 @@
 (function(exports) {
-  Board = function() {
+  Board = function(referee) {
     this._board = [['','',''],['','',''],['','','']];
+    this._referee = new Referee();
   };
 
   Board.prototype = {
@@ -16,8 +17,12 @@
       }
       else return 'turn invalid';
     },
+    referee: function(){
+      return this._referee;
+    },
     update_board: function(x, y, marker){
       this._board[x][y] = marker;
+      this._referee.check_game_status();
     }
   };
 

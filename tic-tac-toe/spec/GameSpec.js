@@ -2,7 +2,8 @@ describe('Game', function(){
   var game;
   var test_player_one = new Player('X');
   var test_player_two = new Player('O');
-  var test_board = new Board();
+  var referee = new Referee();
+  var test_board = new Board(referee);
   var test_x_value = 1;
   var test_y_value = 2;
 
