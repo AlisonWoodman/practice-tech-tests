@@ -1,9 +1,9 @@
 describe("Referee", function() {
-  var referee;
+  var referee = new Referee()
 
   describe("#check_game_status", function(){
-    it("calls...", function() {
-
+    it("exists", function() {
+      expect(referee.check_game_status()).toEqual(true);
     });
   });
 });

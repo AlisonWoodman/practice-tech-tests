@@ -4,12 +4,13 @@ describe('Game', function(){
   var player_two = new Player('O');
   var referee = new Referee();
   var board = new Board();
+  var turn_validator = new TurnValidator
   var x_value = 1;
   var y_value = 2;
 
 
   beforeEach(function() {
-    game = new Game(player_one, player_two, board);
+    game = new Game(player_one, player_two, board, turn_validator, referee);
   });
 
   describe('initialization', function(){
@@ -21,31 +22,22 @@ describe('Game', function(){
       expect(game.player_one()).toEqual(player_one);
       expect(game.player_two()).toEqual(player_two);
     });
-
-    it('starts with a board', function(){
-      expect(game.board()).toEqual(board);
-    });
-
   });
 
   describe('#play', function(){
     it('calls board method to attempt an update', function(){
-      spyOn(board, 'attempt_update');
+      spyOn(turn_validator, 'validate_turn');
       game.play(x_value, y_value);
-      expect(board.attempt_update).toHaveBeenCalled();
+      expect(game._turn_validator.validate_turn).toHaveBeenCalled();
     });
     it('switches current player if play is valid', function(){
       game.play(x_value, y_value);
       expect(game._current_player).toEqual(player_two);
     });
-    it('increments turn if play is valid', function(){
-      game.play(x_value, y_value);
-      expect(game._turn).toEqual(2);
-    });
     it('calls the referee #check_game_status', function() {
-      spyOn(game._referee, 'check_game_status');
+      spyOn(board, 'update_board');
       game.play(x_value, y_value);
-      expect(game._referee.check_game_status).toHaveBeenCalled();
+      expect(game._board.update_board).toHaveBeenCalled();
     });
   });
 });
