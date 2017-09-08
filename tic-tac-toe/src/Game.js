@@ -30,7 +30,7 @@
       if (this._turn_validator.validate_turn(x, y, board)) {
         this._board.update_board(x, y, marker);
         this.switch_players();
-        this._referee.check_game_status();
+        this._referee.check_game_status(x, y, marker);
       }
     },
     switch_players: function(){
