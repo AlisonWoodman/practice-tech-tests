@@ -1,38 +1,51 @@
 describe('Game', function(){
   var game;
-  var test_player_one = new Player('X');
-  var test_player_two = new Player('O');
+  var player_one = new Player('X');
+  var player_two = new Player('O');
   var referee = new Referee();
-  var test_board = new Board(referee);
-  var test_x_value = 1;
-  var test_y_value = 2;
+  var board = new Board();
+  var x_value = 1;
+  var y_value = 2;
 
 
   beforeEach(function() {
-    game = new Game(test_player_one, test_player_two, test_board);
+    game = new Game(player_one, player_two, board);
   });
 
   describe('initialization', function(){
     it('current player on init is player one', function(){
-      expect(game.current_player()).toEqual(test_player_one);
+      expect(game.current_player()).toEqual(player_one);
     });
 
     it('starts with two players', function(){
-      expect(game.player_one()).toEqual(test_player_one);
-      expect(game.player_two()).toEqual(test_player_two);
+      expect(game.player_one()).toEqual(player_one);
+      expect(game.player_two()).toEqual(player_two);
     });
 
     it('starts with a board', function(){
-      expect(game.board()).toEqual(test_board);
+      expect(game.board()).toEqual(board);
     });
 
   });
 
-  describe('play', function(){
+  describe('#play', function(){
     it('calls board method to attempt an update', function(){
-      spyOn(test_board, 'attempt_update');
-      game.play(test_x_value, test_y_value);
-      expect(test_board.attempt_update).toHaveBeenCalled();
+      spyOn(board, 'attempt_update');
+      game.play(x_value, y_value);
+      expect(board.attempt_update).toHaveBeenCalled();
+    });
+    it('switches current player if play is valid', function(){
+      game.play(x_value, y_value);
+      expect(game._current_player).toEqual(player_two);
+    });
+    it('increments turn if play is valid', function(){
+      game.play(x_value, y_value);
+      expect(game._turn).toEqual(2);
+    });
+    it('calls the referee #check_game_status', function() {
+      spyOn(game._referee, 'check_game_status');
+      game.play(x_value, y_value);
+      expect(game._referee.check_game_status).toHaveBeenCalled();
     });
   });
 });
